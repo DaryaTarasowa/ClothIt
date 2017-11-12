@@ -1,34 +1,48 @@
 import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 import { FormattedMessage } from 'react-intl';
+import {Menu, Segment, Header as UI_header} from 'semantic-ui-react';
 
 // Import Style
 import styles from './Header.css';
 
 export function Header(props, context) {
+  let activeLang = props.intl.locale;
+  let activeItem = 'Home';
   const languageNodes = props.intl.enabledLanguages.map(
-    lang => <li key={lang} onClick={() => props.switchLanguage(lang)} className={lang === props.intl.locale ? styles.selected : ''}>{lang}</li>
+    (lang) => {
+        return <Menu.Item
+                name={lang}
+                key={lang}
+                onClick={() => props.switchLanguage(lang)}
+                active={activeLang === lang}
+                />
+            }
   );
 
+  //
+  //     {
+  //       context.router.isActive('/', true)
+  //         ? <a className={styles['add-post-button']} href="#" onClick={props.toggleAddCloth}><FormattedMessage id="addCloth" /></a>
+  //         : null
+  //     }
+  //
+  //   </div>
   return (
-    <div className={styles.header}>
-      <div className={styles['language-switcher']}>
-        <ul>
-          <li><FormattedMessage id="switchLanguage" /></li>
-          {languageNodes}
-        </ul>
-      </div>
-      <div className={styles.content}>
-        <h1 className={styles['site-title']}>
-          <Link to="/" ><FormattedMessage id="siteTitle" /></Link>
-        </h1>
-        {
-          context.router.isActive('/', true)
-            ? <a className={styles['add-post-button']} href="#" onClick={props.toggleAddCloth}><FormattedMessage id="addCloth" /></a>
-            : null
-        }
-
-      </div>
+      <div>
+        <Menu pointing secondary>
+          <Menu.Item name='home' active={activeItem === 'home'}  />
+          <Menu.Item name='messages' active={activeItem === 'messages'}  />
+          <Menu.Item name='friends' active={activeItem === 'friends'}  />
+          <Menu.Menu position='right'>
+            {languageNodes}
+          </Menu.Menu>
+        </Menu>
+        <Segment>
+            <UI_header as='h1'>
+                <Link to="/" ><FormattedMessage id="siteTitle" /></Link>
+            </UI_header>
+        </Segment>
     </div>
   );
 }

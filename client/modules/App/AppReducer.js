@@ -12,7 +12,7 @@ const AppReducer = (state = initialState, action) => {
     case TOGGLE_ADD_CLOTH:
       return {
         showAddCloth: !state.showAddCloth,
-      };
+      };    
 
     default:
       return state;
