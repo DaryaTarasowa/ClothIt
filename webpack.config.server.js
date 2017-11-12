@@ -4,11 +4,11 @@ var ExternalsPlugin = require('webpack-externals-plugin');
 
 module.exports = {
 
-  entry: path.resolve(__dirname, 'server/server.js'),
+  entry: path.resolve(__dirname, 'server1/server.js'),
 
   output: {
     path: __dirname + '/dist/',
-    filename: 'server.bundle.js',
+    filename: 'server1.bundle.js',
   },
 
   target: 'node',

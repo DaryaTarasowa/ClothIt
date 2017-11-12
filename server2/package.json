@@ -1,5 +1,5 @@
 {
-  "name": "mern-starter",
+  "name": "server2",
   "version": "2.0.0",
   "description": "Boilerplate project for building Isomorphic apps using React and Redux",
   "scripts": {
@@ -7,8 +7,8 @@
     "watch:test": "npm run test -- --watch",
     "cover": "nyc npm run test",
     "check-coverage": "nyc check-coverage --statements 100 --branches 100 --functions 100 --lines 100",
-    "start": "cross-env BABEL_DISABLE_CACHE=1 NODE_ENV=development nodemon index.js",
-    "start:prod": "cross-env NODE_ENV=production node index.js",
+    "start": "nodemon index.js",
+    "start:prod": "cross-env NODE_ENV=production node server.js",
     "bs": "npm run clean && npm run build && npm run build:server && npm run start:prod",
     "build": "cross-env NODE_ENV=production webpack --config webpack.config.prod.js",
     "build:server": "cross-env NODE_ENV=production webpack --config webpack.config.server.js",
@@ -20,16 +20,7 @@
     "lint",
     "test"
   ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Hashnode/mern-starter.git"
-  },
-  "bugs": {
-    "url": "https://github.com/Hashnode/mern-starter/issues"
-  },
-  "homepage": "https://github.com/Hashnode/mern-starter#readme",
-  "author": "Prashant Abhishek <prashant.abhishek7g@gmail.com>, Mayank Chandola <imayankchd@gmail.com>, Sandeep Panda <sandeep@hashnode.com>, Syed Fazle Rahman <fazle@hashnode.com>, Alkshendra Maurya <alkshendra@hashnode.com>",
-  "license": "MIT",
+
   "dependencies": {
     "babel-core": "^6.9.1",
     "body-parser": "^1.15.1",
