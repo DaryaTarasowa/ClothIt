@@ -20,10 +20,10 @@ module.exports = {
     ],
   },
   module: {
-    loaders: [
+    loaders: [    
       {
         test: /\.css$/,
-        exclude: /node_modules/,
+        inlcude: /node_modules/,
         loader: 'style-loader!css-loader?localIdentName=' + cssModulesIdentName + '&modules&importLoaders=1&sourceMap!postcss-loader',
       },
       {

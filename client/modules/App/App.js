@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 // Import Style
 import styles from './App.css';
 
+
 // Import Components
 import Helmet from 'react-helmet';
 import DevTools from './components/DevTools';
@@ -35,8 +36,8 @@ export class App extends Component {
         {this.state.isMounted && !window.devToolsExtension && process.env.NODE_ENV === 'development' && <DevTools />}
         <div>
           <Helmet
-            title="MERN Starter - Blog App"
-            titleTemplate="%s - Blog App"
+            title="ClothIt - Rationalize your closet"
+            titleTemplate="%s - Rationalize your closet"
             meta={[
               { charset: 'utf-8' },
               {
@@ -54,7 +55,7 @@ export class App extends Component {
             intl={this.props.intl}
             toggleAddCloth={this.toggleAddClothSection}
           />
-          <div className={styles.container}>
+          <div>
             {this.props.children}
           </div>
           <Footer />
