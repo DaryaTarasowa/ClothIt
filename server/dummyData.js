@@ -1,6 +1,6 @@
 import Post from './models/post';
 
-export default function () {
+export default function (callback) {
   Post.count().exec((err, count) => {
     if (count > 0) {
       return;
@@ -39,8 +39,10 @@ export default function () {
 
     Post.create([post1, post2], (error) => {
       if (!error) {
-        // console.log('ready to go....');
-      }
+        callback(null);
+    }else{
+        callback(error);
+    }
     });
   });
 }

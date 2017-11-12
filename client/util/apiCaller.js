@@ -14,6 +14,7 @@ export default function callApi(endpoint, method = 'get', body) {
   .then(response => response.json().then(json => ({ json, response })))
   .then(({ json, response }) => {
     if (!response.ok) {
+        console.log(response.error);
       return Promise.reject(json);
     }
 
