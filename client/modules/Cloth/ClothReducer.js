@@ -29,7 +29,6 @@ const ClothReducer = (state = initialState, action) => {
 
 // Get all clothes
 export const getClothes = state => {
-    console.log(state);
     return state.clothes.data;
 };
 

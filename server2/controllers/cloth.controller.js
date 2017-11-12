@@ -1,11 +1,10 @@
 'use strict';
 
-let Cloth = require('../models/cloth').Cloth;
+let mongoose = require('mongoose');
+let Cloth = mongoose.model('Cloth', require('../models/cloth'));
 let cuid = require('cuid');
-let slug = require('limax').slug;
-let sanitizeHtml =require('sanitize-html').sanitizeHtml;
-
-
+let slug = require('limax');
+let sanitizeHtml = require('sanitize-html');
 
 module.exports = {
     /**
@@ -17,7 +16,6 @@ module.exports = {
     getClothes: function(req, res) {
         Cloth.find().sort('-dateAdded').exec((err, clothes) => {
           if (err) {
-              console.log('ERROR:' + err);
             res.status(500).send(err);
           }
           res.json({ clothes });
@@ -63,7 +61,7 @@ module.exports = {
      * @returns void
      */
     getCloth: function(req, res) {
-      Cloth.findOne({ cuid: req.params.cuid }).exec((err, post) => {
+      Cloth.findOne({ cuid: req.params.cuid }).exec((err, cloth) => {
         if (err) {
           res.status(500).send(err);
         }

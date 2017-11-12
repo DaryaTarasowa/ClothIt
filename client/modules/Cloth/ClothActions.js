@@ -14,8 +14,9 @@ export function addCloth(cloth) {
 }
 
 export function addClothRequest(cloth) {
+
   return (dispatch) => {
-    return callApi('clothes', 'post', {
+    return callApi('server2','clothes','post', {
       cloth: {
         name: cloth.name,
         bodypart: cloth.bodypart,
@@ -39,16 +40,15 @@ export function addClothes(clothes) {
 
 export function fetchClothes() {
   return (dispatch) => {
-    return callApi('clothes').then(res => {
-        console.log(res);
-            dispatch(addClothes(res.clothes));
+    return callApi('server2', 'clothes').then(res => {
+        dispatch(addClothes(res.clothes));
     });
   };
 }
 
 export function fetchCloth(cuid) {
   return (dispatch) => {
-    return callApi(`clothes/${cuid}`).then(res => dispatch(addCloth(res.cloth)));
+    return callApi('server2', `clothes/${cuid}`).then(res => dispatch(addCloth(res.cloth)));
   };
 }
 
@@ -61,6 +61,6 @@ export function deleteCloth(cuid) {
 
 export function deleteClothRequest(cuid) {
   return (dispatch) => {
-    return callApi(`clothes/${cuid}`, 'delete').then(() => dispatch(deleteCloth(cuid)));
+    return callApi('server2', `clothes/${cuid}`, 'delete').then(() => dispatch(deleteCloth(cuid)));
   };
 }

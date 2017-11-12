@@ -31,12 +31,11 @@ mongoose.connect(serverConfig.mongoURL, (error) => {
   if (error) {
     console.error('Please make sure Mongodb is installed and running!'); // eslint-disable-line no-console
     throw error;
+  }else{
+    console.log('MongoDb is connected!');
+    dummyDataCloth();
   }
 
-  // feed some dummy data in DB.
-  async.parallel([
-     dummyDataCloth,
- ]);
 
 });
 
@@ -45,6 +44,12 @@ app.use(compression());
 app.use(bodyParser.json({ limit: '20mb' }));
 app.use(bodyParser.urlencoded({ limit: '20mb', extended: false }));
 app.use(express.static(path.resolve(__dirname, '../dist/client')));
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
+  next();
+});
 app.use('/api', clothes_routes);
 
 

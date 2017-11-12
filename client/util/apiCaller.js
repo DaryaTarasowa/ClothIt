@@ -6,24 +6,28 @@ import Config from '../../server1/config';
 //   '/api';
 let API_URL = '';
 
-export default function callApi(microservice = 'server1', endpoint, method = 'get', body) {
+export default function callApi(microservice, endpoint, method = 'get', body) {
+    console.log('Entering apiCaller');
     switch (microservice) {
         case 'server1':
             API_URL = (typeof window === 'undefined' || process.env.NODE_ENV === 'test') ?
-              process.env.BASE_URL || (`http://localhost:${process.env.PORT || Config.port}/api`) :
-              'http://localhost:80/api';
+              process.env.BASE_URL || (`http://localhost:80/api`) :
+              '/api';
             break;
         case 'server2':
             API_URL = (typeof window === 'undefined' || process.env.NODE_ENV === 'test') ?
-              process.env.BASE_URL || (`http://localhost:81/api`) :
+              process.env.BASE_URL || (`http://localhost:8081/api`) :
               'http://localhost:8081/api';
               break;
         default:
             API_URL = (typeof window === 'undefined' || process.env.NODE_ENV === 'test') ?
-              process.env.BASE_URL || (`http://localhost:${process.env.PORT || Config.port}/api`) :
-              'http://localhost:80/api';
+              process.env.BASE_URL || (`http://localhost:80/api`) :
+              '/api';
     }
-  return fetch(`${API_URL}/${endpoint}`, {
+    let request_url = API_URL+'/'+endpoint;
+    console.log(request_url);
+
+  return fetch(request_url, {
     headers: { 'content-type': 'application/json' },
     method,
     body: JSON.stringify(body),

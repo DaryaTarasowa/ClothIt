@@ -33,7 +33,7 @@ export function ClothDetailPage(props) {
 
 // Actions required to provide data for this component to render in sever side.
 ClothDetailPage.need = [params => {
-  return fetchPost(params.cuid);
+  return fetchCloth(params.cuid);
 }];
 
 // Retrieve data from store as props
