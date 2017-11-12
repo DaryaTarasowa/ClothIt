@@ -6,7 +6,7 @@ if (process.env.NODE_ENV === 'production') {
   process.env.webpackAssets = JSON.stringify(require('./dist/client/manifest.json'));
   process.env.webpackChunkAssets = JSON.stringify(require('./dist/client/chunk-manifest.json'));
   // In production, serve the webpacked server file.
-  require('./dist/server1.bundle.js');
+  require('./dist/server.bundle.js');
 } else {
   // Babel polyfill to convert ES6 code in runtime
   require('babel-register')({
@@ -22,5 +22,5 @@ if (process.env.NODE_ENV === 'production') {
   });
   require('babel-polyfill');
 
-  require('./server1/server');
+  require('./server/server');
 }

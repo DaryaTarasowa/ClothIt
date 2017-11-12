@@ -1,6 +1,6 @@
 import test from 'ava';
 import request from 'supertest';
-import app from '../../server1';
+import app from '../../server';
 import Post from '../post';
 import { connectDB, dropDB } from '../../util/test-helpers';
 

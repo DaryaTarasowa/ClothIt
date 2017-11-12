@@ -1,5 +1,5 @@
 import fetch from 'isomorphic-fetch';
-import Config from '../../server1/config';
+import Config from '../../server/config';
 
 // export const API_URL = (typeof window === 'undefined' || process.env.NODE_ENV === 'test') ?
 //   process.env.BASE_URL || (`http://localhost:${process.env.PORT || Config.port}/api`) :
@@ -9,7 +9,7 @@ let API_URL = '';
 export default function callApi(microservice, endpoint, method = 'get', body) {
     console.log('Entering apiCaller');
     switch (microservice) {
-        case 'server1':
+        case 'server':
             API_URL = (typeof window === 'undefined' || process.env.NODE_ENV === 'test') ?
               process.env.BASE_URL || (`http://localhost:80/api`) :
               '/api';

@@ -120,32 +120,32 @@
   "ava": {
     "files": [
       "client/**/*.spec.js",
-      "server1/**/*.spec.js"
+      "server/**/*.spec.js"
     ],
     "source": [
       "client/**/*.js",
-      "server1/**/*.js"
+      "server/**/*.js"
     ],
     "failFast": true,
     "babel": "inherit",
     "require": [
-      "./server1/util/setup-test-env.js"
+      "./server/util/setup-test-env.js"
     ]
   },
   "nyc": {
     "include": [
       "client/**/*.js",
-      "server1/**/*.js"
+      "server/**/*.js"
     ],
     "exclude": [
       "**/*.spec.js",
       "client/reducers.js",
       "client/store.js",
       "client/routes.js",
-      "server1/util/setup-test-env.js",
-      "server1/util/test-helpers.js",
-      "server1/config.js",
-      "server1/dummyData.js"
+      "server/util/setup-test-env.js",
+      "server/util/test-helpers.js",
+      "server/config.js",
+      "server/dummyData.js"
     ],
     "reporter": [
       "lcov",

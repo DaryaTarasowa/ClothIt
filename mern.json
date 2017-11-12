@@ -69,15 +69,15 @@
         },
         {
           "blueprint-path": "config/blueprints/module/controller.ejs",
-          "target-path": "server1/controllers/<%= name %>.controller.js"
+          "target-path": "server/controllers/<%= name %>.controller.js"
         },
         {
           "blueprint-path": "config/blueprints/module/express-route.ejs",
-          "target-path": "server1/routes/<%= name %>.routes.js"
+          "target-path": "server/routes/<%= name %>.routes.js"
         },
         {
           "blueprint-path": "config/blueprints/module/model.ejs",
-          "target-path": "server1/models/<%= name %>.js"
+          "target-path": "server/models/<%= name %>.js"
         }
       ]
     }
