@@ -15,6 +15,9 @@ import {Grid, Segment, Image} from 'semantic-ui-react';
 //Import Styles
 import styles from './LandingPage.css';
 
+//Import images
+
+
 
 
 class LandingPage extends Component {
@@ -25,7 +28,7 @@ class LandingPage extends Component {
   render() {
     return (
         <div className={styles['logo_segment']}>
-            <Image src={require('images/landing_logo.jpg')} centered/>
+            <Image src={require('images/landing_logo.jpg')} centered className={styles['static']}/>
         </div>
 
     );
