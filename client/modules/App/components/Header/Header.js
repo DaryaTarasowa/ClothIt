@@ -1,10 +1,13 @@
 import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 import { FormattedMessage } from 'react-intl';
-import {Menu, Segment, Header as UI_header} from 'semantic-ui-react';
+import {Menu, Segment, Header as UI_header, Image} from 'semantic-ui-react';
 
 // Import Style
 import styles from './Header.css';
+
+// Import images
+//import logo from './client/images/landing_logo.jpg';
 
 export function Header(props, context) {
   let activeLang = props.intl.locale;
@@ -40,9 +43,10 @@ export function Header(props, context) {
         </Menu>
         <Segment>
             <UI_header as='h1'>
-                <Link to="/" ><FormattedMessage id="siteTitle" /></Link>
+                <Link to="/"><FormattedMessage id="siteTitle" defaultMessage="ClothIt - rationalize your closet!"/></Link>
             </UI_header>
         </Segment>
+        
     </div>
   );
 }

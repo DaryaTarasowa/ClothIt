@@ -1,6 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
-import {Grid, Segment} from 'semantic-ui-react';
+import {Grid, Segment, Image} from 'semantic-ui-react';
 
 // Import Components
 
@@ -12,6 +12,35 @@ import {Grid, Segment} from 'semantic-ui-react';
 // import { getShowAddCloth } from '../../../App/AppReducer';
 // import { getClothes } from '../../ClothReducer';
 
+//Import Styles
+import styles from './LandingPage.css';
+
+// <Grid columns={2} stackable>
+// <Grid.Column>
+//
+// </Grid.Column>
+// <Grid.Column>
+//   <Segment>Content</Segment>
+// </Grid.Column>
+// <Grid.Row columns={3}>
+//   <Grid.Column>
+//     <Segment>Content</Segment>
+//   </Grid.Column>
+//   <Grid.Column>
+//     <Segment>Content</Segment>
+//   </Grid.Column>
+//   <Grid.Column>
+//     <Segment>Content</Segment>
+//   </Grid.Column>
+// </Grid.Row>
+// <Grid.Column width={10}>
+//   <Segment>Content</Segment>
+// </Grid.Column>
+// <Grid.Column width={6}>
+//   <Segment>Content</Segment>
+// </Grid.Column>
+// </Grid>
+
 class LandingPage extends Component {
   componentDidMount() {
     //this.props.dispatch(fetchClothes());
@@ -19,31 +48,10 @@ class LandingPage extends Component {
 
   render() {
     return (
-        <Grid columns={2} stackable>
-        <Grid.Column>
-          <Segment>Content</Segment>
-        </Grid.Column>
-        <Grid.Column>
-          <Segment>Content</Segment>
-        </Grid.Column>
-        <Grid.Row columns={3}>
-          <Grid.Column>
-            <Segment>Content</Segment>
-          </Grid.Column>
-          <Grid.Column>
-            <Segment>Content</Segment>
-          </Grid.Column>
-          <Grid.Column>
-            <Segment>Content</Segment>
-          </Grid.Column>
-        </Grid.Row>
-        <Grid.Column width={10}>
-          <Segment>Content</Segment>
-        </Grid.Column>
-        <Grid.Column width={6}>
-          <Segment>Content</Segment>
-        </Grid.Column>
-      </Grid>
+        <div className={styles['logo_segment']}>
+            <Image src={require('images/landing_logo.jpg')} centered/>
+        </div>
+
     );
 
   }
