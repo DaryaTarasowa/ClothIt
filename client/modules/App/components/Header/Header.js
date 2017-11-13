@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 import { FormattedMessage } from 'react-intl';
-import {Menu, Segment, Header as UI_header, Image, Grid, Sticky} from 'semantic-ui-react';
+import {Menu, Segment, Container, Image, Grid} from 'semantic-ui-react';
 
 // Import Style
 import styles from './Header.css';
@@ -23,37 +23,28 @@ export function Header(props, context) {
             }
   );
 
-  //
-  //     {
-  //       context.router.isActive('/', true)
-  //         ? <a className={styles['add-post-button']} href="#" onClick={props.toggleAddCloth}><FormattedMessage id="addCloth" /></a>
-  //         : null
-  //     }
-  //
-  //   </div>
+
 
 
   return (
-
-          <Grid stackable padded='vertically' columns='equal' verticalAlign='bottom' className={styles['sticky']}>
-              <Grid.Column only='tablet computer' className={styles['no-padding']}>
+      <Grid stackable padded='vertically' centered verticalAlign='bottom' className={styles['sticky']}>
+         <Grid.Column width={16}>
+             <Link to='/'>
+               <Image src={require('images/main_logo.png')} centered size='medium'/>
+             </Link>
+         </Grid.Column>
+         <Grid.Row only='tablet computer' className={styles['horizontal-padding']}>
+              <Grid.Column width={12} >
                 <Menu borderless pointing secondary>
-                    <Menu.Item name='home' active={activeItem === 'home'}  />
-                    <Menu.Item name='messages' active={activeItem === 'messages'}  />
-                    <Menu.Item name='friends' active={activeItem === 'friends'}  />
+                    <Menu.Item name='Home' active={context.router.isActive('/', true)} as='a' href='/' />
+                    <Menu.Item name='My Closet' active={context.router.isActive('/closet', true)} as='a' href='/closet'/>
+                    <Menu.Menu position='right'>
+                        {languageNodes}
+                    </Menu.Menu>
                 </Menu>
               </Grid.Column>
-              <Grid.Column className={styles['no-padding']}>
-                  <Segment basic padded='very' as='a' href='/'>
-                    <Image src={require('images/main_logo.png')} centered size='medium'/>
-                  </Segment>
-              </Grid.Column>
-              <Grid.Column floated='right' only='tablet computer' className={styles['no-padding']}>
-                <Menu borderless pointing secondary floated='right'>
-                    {languageNodes}
-                </Menu>
-              </Grid.Column>
-          </Grid>
+          </Grid.Row>
+      </Grid>
   );
 }
 

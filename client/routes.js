@@ -34,10 +34,18 @@ export default (
       }}
     />
     <Route
-      path="/clothes/:slug-:cuid"
+      path="/closet/:slug-:cuid"
       getComponent={(nextState, cb) => {
         require.ensure([], require => {
-          cb(null, require('./modules/Cloth/pages/ClothDetailPage/ClothDetailPage').default);
+          cb(null, require('./modules/Cloth/pages/ClothListPage/ClothListPage').default);
+        });
+      }}
+    />
+    <Route
+      path="/closet"
+      getComponent={(nextState, cb) => {
+        require.ensure([], require => {
+          cb(null, require('./modules/Cloth/pages/ClothListPage/ClothListPage').default);
         });
       }}
     />
