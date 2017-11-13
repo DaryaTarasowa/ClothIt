@@ -15,31 +15,7 @@ import {Grid, Segment, Image} from 'semantic-ui-react';
 //Import Styles
 import styles from './LandingPage.css';
 
-// <Grid columns={2} stackable>
-// <Grid.Column>
-//
-// </Grid.Column>
-// <Grid.Column>
-//   <Segment>Content</Segment>
-// </Grid.Column>
-// <Grid.Row columns={3}>
-//   <Grid.Column>
-//     <Segment>Content</Segment>
-//   </Grid.Column>
-//   <Grid.Column>
-//     <Segment>Content</Segment>
-//   </Grid.Column>
-//   <Grid.Column>
-//     <Segment>Content</Segment>
-//   </Grid.Column>
-// </Grid.Row>
-// <Grid.Column width={10}>
-//   <Segment>Content</Segment>
-// </Grid.Column>
-// <Grid.Column width={6}>
-//   <Segment>Content</Segment>
-// </Grid.Column>
-// </Grid>
+
 
 class LandingPage extends Component {
   componentDidMount() {

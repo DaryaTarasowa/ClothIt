@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 import { FormattedMessage } from 'react-intl';
-import {Menu, Segment, Header as UI_header, Image} from 'semantic-ui-react';
+import {Menu, Segment, Header as UI_header, Image, Grid} from 'semantic-ui-react';
 
 // Import Style
 import styles from './Header.css';
@@ -31,23 +31,28 @@ export function Header(props, context) {
   //     }
   //
   //   </div>
+
+
   return (
-      <div>
-        <Menu pointing secondary>
-          <Menu.Item name='home' active={activeItem === 'home'}  />
-          <Menu.Item name='messages' active={activeItem === 'messages'}  />
-          <Menu.Item name='friends' active={activeItem === 'friends'}  />
-          <Menu.Menu position='right'>
-            {languageNodes}
-          </Menu.Menu>
-        </Menu>
-        <Segment>
-            <UI_header as='h1'>
-                <Link to="/"><FormattedMessage id="siteTitle" defaultMessage="ClothIt - rationalize your closet!"/></Link>
-            </UI_header>
-        </Segment>
-        
-    </div>
+      <Grid stackable columns='equal' verticalAlign='bottom'>
+          <Grid.Column only='tablet computer'>
+            <Menu borderless pointing secondary>
+                <Menu.Item name='home' active={activeItem === 'home'}  />
+                <Menu.Item name='messages' active={activeItem === 'messages'}  />
+                <Menu.Item name='friends' active={activeItem === 'friends'}  />
+            </Menu>
+          </Grid.Column>
+          <Grid.Column>
+              <Segment basic padded='very' as='a' href='/'>
+                <Image src={require('images/main_logo.png')} centered size='medium'/>
+              </Segment>
+          </Grid.Column>
+          <Grid.Column floated='right' only='tablet computer'>
+            <Menu borderless pointing secondary floated='right'>
+                {languageNodes}
+            </Menu>
+          </Grid.Column>
+      </Grid>
   );
 }
 
