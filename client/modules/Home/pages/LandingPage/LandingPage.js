@@ -27,7 +27,7 @@ class LandingPage extends Component {
 
   render() {
     return (
-        <div className={styles['logo_segment']}>
+        <div className={styles['page-background']}>
             <Image src={require('images/landing_logo.jpg')} centered className={styles['static']}/>
         </div>
 

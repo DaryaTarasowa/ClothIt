@@ -1,23 +1,39 @@
 import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 import { FormattedMessage } from 'react-intl';
+import {Grid, Segment, Header, Image} from 'semantic-ui-react';
 
 // Import Style
 import styles from './ClothListItem.css';
 
 function ClothListItem(props) {
+    const picture_url = 'landing_logo.jpg';
+    const picture = require(`images/${picture_url}`);
+    console.log(picture);
+    //let picture = <Image src=require(`${picture_url}`)/>;
+    let style = {
+     background: '#eee' // url(picture), //TODO need to handle error of loading the image
+    //   backgroundSize: "100% 100%",
+    }
+
   return (
-    <div className={styles['single-post']}>
-      <h3 className={styles['post-title']}>
-        <Link to={`/clothes/${props.cloth.slug}-${props.cloth.cuid}`} >
-          {props.cloth.name}
-        </Link>
-      </h3>
-      <p className={styles['author-name']}><FormattedMessage id="by" /> {props.cloth.brand}</p>
-      <p className={styles['post-desc']}>{props.cloth.description}</p>
-      <p className={styles['post-action']}><a href="#" onClick={props.onDelete}><FormattedMessage id="deleteCloth" /></a></p>
-      <hr className={styles.divider} />
-    </div>
+    <Grid.Column>
+        <Segment style={style}>
+          <Header as ='h3'>
+            <Link to={`/clothes/${props.cloth.slug}-${props.cloth.cuid}`} >
+              {props.cloth.name}
+            </Link>
+          </Header>
+          {/* <Image src={require(props.cloth.picture)}/>
+          <Image src={picture} centered/>
+          */}
+
+
+          <p className={styles['author-name']}><FormattedMessage id="by" /> {props.cloth.brand}</p>
+          <p className={styles['post-desc']}>{props.cloth.description}</p>
+          <p className={styles['post-action']}><a href="#" onClick={props.onDelete}><FormattedMessage id="deleteCloth" /></a></p>
+         </Segment>
+    </Grid.Column>
   );
 }
 

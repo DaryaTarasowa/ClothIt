@@ -13,6 +13,9 @@ import { toggleAddCloth } from '../../../App/AppActions';
 import { getShowAddCloth } from '../../../App/AppReducer';
 import { getClothes } from '../../ClothReducer';
 
+import {Grid, Divider, Image} from 'semantic-ui-react';
+import styles from './ClothListPage.css';
+
 class ClothListPage extends Component {
   componentDidMount() {
     this.props.dispatch(fetchClothes());
@@ -31,11 +34,19 @@ class ClothListPage extends Component {
   };
 
   render() {
+
     return (
-      <div>
-      <ClothCreateWidget addCloth={this.handleAddCloth} showAddCloth={this.props.showAddCloth} />
-      <ClothList handleDeleteCloth={this.handleDeleteCloth} clothes={this.props.clothes} />
-      </div>
+
+        <div className={styles['page-background']}>
+            <Grid centered className={styles['static']}>
+                <Grid.Column width={12} className={styles['static']}>
+                    <ClothCreateWidget addCloth={this.handleAddCloth} showAddCloth={this.props.showAddCloth}/>
+                    <ClothList handleDeleteCloth={this.handleDeleteCloth} clothes={this.props.clothes} />
+               </Grid.Column>
+            </Grid>
+        </div>
+
+
     );
 
   }

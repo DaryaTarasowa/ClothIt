@@ -7,3 +7,7 @@
 .static{
     position: static!important;
 }
+
+.white{
+    background: #ffffff;
+}
