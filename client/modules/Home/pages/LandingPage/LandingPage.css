@@ -1,9 +1,0 @@
-.page-background{
-    background: #eee url('images/landing_logo_bg.jpg') center;
-    background-size: 100% 100%;
-    text-align: center;
-}
-
-.static{
-    position: static!important;
-}

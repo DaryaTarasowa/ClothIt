@@ -4,7 +4,7 @@ import Helmet from 'react-helmet';
 import { FormattedMessage } from 'react-intl';
 
 // Import Style
-import styles from '../../components/ClothListItem/ClothListItem.css';
+//import styles from '../../components/ClothListItem/ClothListItem.css';
 
 // Import Actions
 import { fetchCloth } from '../../ClothActions';
@@ -18,14 +18,14 @@ export function ClothDetailPage(props) {
   return (
     <div>
       <Helmet title={props.cloth.name} />
-      <div className={`${styles['single-post']} ${styles['post-detail']}`}>
-        <h3 className={styles['post-title']}>{props.cloth.picture}</h3>
-        <p className={styles['author-name']}><FormattedMessage id="by" /> {props.cloth.brand}</p>
-        <p className={styles['post-desc']}>{props.cloth.bodypart}</p>
-        <p className={styles['post-desc']}>{props.cloth.size}</p>
-        <p className={styles['post-desc']}>{props.cloth.color}</p>
-        <p className={styles['post-desc']}>{props.cloth.fabric}</p>
-        <p className={styles['post-desc']}>{props.cloth.dateAdded}</p>
+      <div className='single-post post-detail'>
+        <h3 className='post-title'><img src={props.cloth.picture}/></h3>
+        <p className='author-name'><FormattedMessage id="by" /> {props.cloth.brand}</p>
+        <p className='post-desc'>{props.cloth.bodypart}</p>
+        <p className='post-desc'>{props.cloth.size}</p>
+        <p className='post-desc'>{props.cloth.color}</p>
+        <p className='post-desc'>{props.cloth.fabric}</p>
+        <p className='post-desc'>{props.cloth.dateAdded}</p>
       </div>
     </div>
   );

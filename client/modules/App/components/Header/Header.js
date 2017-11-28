@@ -4,7 +4,7 @@ import { FormattedMessage } from 'react-intl';
 import {Menu, Segment, Container, Image, Grid} from 'semantic-ui-react';
 
 // Import Style
-import styles from './Header.css';
+//import styles from './Header.css';
 
 // Import images
 //import logo from './client/images/landing_logo.jpg';
@@ -27,13 +27,13 @@ export function Header(props, context) {
 
 
   return (
-      <Grid stackable padded='vertically' centered verticalAlign='bottom' className={styles['sticky']}>
+      <Grid stackable padded='vertically' centered verticalAlign='bottom' className='sticky'>
          <Grid.Column width={16}>
              <Link to='/'>
-               <Image src={require('images/main_logo.png')} centered size='medium'/>
+               <Image src='/assets/images/main_logo.png' centered size='medium'/>
              </Link>
          </Grid.Column>
-         <Grid.Row only='tablet computer' className={styles['horizontal-padding']}>
+         <Grid.Row only='tablet computer' className='horizontal-padding'>
               <Grid.Column width={12} >
                 <Menu borderless pointing secondary>
                     <Menu.Item name='Home' active={context.router.isActive('/', true)} as='a' href='/' />

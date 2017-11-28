@@ -13,32 +13,20 @@ module.exports = {
     libraryTarget: 'commonjs2',
   },
   resolve: {
-    extensions: ['', '.js', '.jsx'],
+    extensions: ['.js', '.jsx'],
     modules: [
       'client',
       'node_modules',
+	  'assets',
     ],
   },
   module: {
-    loaders: [    
+    loaders: [
       {
         test: /\.css$/,
-        inlcude: /node_modules/,
-        loader: 'style-loader!css-loader?localIdentName=' + cssModulesIdentName + '&modules&importLoaders=1&sourceMap!postcss-loader',
+        loader: 'style-loader!css-loader?importLoaders=1&localIdentName=' + cssModulesIdentName + '&modules=true',
       },
-      {
-        test: /\.jpe?g$|\.gif$|\.png$|\.svg$/i,
-        loader: 'url-loader?limit=10000',
-      },
+
     ],
   },
-  postcss: () => [
-    postcssFocus(),
-    cssnext({
-      browsers: ['last 2 versions', 'IE > 10'],
-    }),
-    postcssReporter({
-      clearMessages: true,
-    }),
-  ],
 };

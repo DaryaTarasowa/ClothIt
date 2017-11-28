@@ -1,85 +1,86 @@
-var webpack = require('webpack');
-var cssnext = require('postcss-cssnext');
-var postcssFocus = require('postcss-focus');
-var postcssReporter = require('postcss-reporter');
+'use strict';
+let webpack = require('webpack');
+let path = require('path');
+const host = process.env.HOST ? process.env.HOST : 'localhost';
+const mainPort = process.env.PORT ? parseInt(process.env.PORT) : 3000;
+const devPort = process.env.PORT ? parseInt(process.env.PORT) + 1 : 3001;
 
-module.exports = {
-  devtool: 'cheap-module-eval-source-map',
+let webpackConfig = {
+    resolve: {
+        extensions: ['.js', '.jsx'],
+        alias: {
+            react: path.resolve('./node_modules/react'),
+        }
+    },
+    entry: {
+        main: [
+            //todo: solve the issue with same-origin policy when loading fonts
+            'webpack-dev-server/client?http://' + host + ':' + mainPort,
+            'webpack/hot/only-dev-server',
+            './client/index.js'
+        ]
+    },
+    output: {
+        path: path.resolve('./build/js'),
+        publicPath: '/public/js/',
+        filename: '[name].js'
+    },
+    module: {
+        rules: [
+            {
+                test: /\.json$/,            // Load JSON-files into code base.
+                exclude: /node_modules/,
+                use: [
+                    {
+                        loader: 'json-loader',
+                    }
+                ]
+            },
+            {
+                test: /\.(js|jsx)$/,
+                exclude: /node_modules/,
+                use: [
+                    {
+                        loader: 'react-hot-loader/webpack'
+                    },
+                    {
+                        loader: 'babel-loader'
 
-  entry: {
-    app: [
-      'eventsource-polyfill',
-      'webpack-hot-middleware/client',
-      'webpack/hot/only-dev-server',
-      'react-hot-loader/patch',
-      './client/index.js',
+                    }
+                ]
+            },
+            {
+                test: /\.css$/,
+                exclude:  /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9=&.]+)?$/,
+                use: [
+                    {
+                        loader: 'style-loader'
+                    },
+                    {
+                        loader: 'css-loader?modules=true&importLoaders=1&localIdentName=[hash:base64:5]',
+                        // options: {import: false}
+                    }
+                ]
+            },
+            // Getting URLs for font files otherwise we get encoding errors in css-loader
+            { test   : /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9=&.]+)?$/, loader: 'file-loader'},// 'url-loader?limit=100000'},
+        ]
+    },
+    node: {
+        setImmediate: false
+    },
+    plugins: [
+        new webpack.HotModuleReplacementPlugin(),
+        new webpack.NoEmitOnErrorsPlugin(),
+        new webpack.DefinePlugin({
+            'process.env': {
+                NODE_ENV: JSON.stringify('dev'),
+                BROWSER: JSON.stringify(true)
+            }
+        }),
+
     ],
-    vendor: [
-      'react',
-      'react-dom',
-    ],
-  },
-
-  output: {
-    path: __dirname,
-    filename: 'app.js',
-    publicPath: 'http://localhost/',
-  },
-
-  resolve: {
-    extensions: ['', '.js', '.jsx'],
-    modules: [
-      'client',
-      'node_modules',
-    ],
-  },
-
-  module: {
-    loaders: [
-      {
-        test: /\.css$/,
-        exclude: /node_modules/,
-        loader: 'style-loader!css-loader?localIdentName=[name]__[local]__[hash:base64:5]&modules&importLoaders=1&sourceMap!postcss-loader',
-      }, {
-        test: /\.css$/,
-        include: /node_modules/,
-        loaders: ['style-loader', 'css-loader'],
-      }, {
-        test: /\.jsx*$/,
-        exclude: [/node_modules/, /.+\.config.js/],
-        loader: 'babel',
-      }, {
-        test: /\.(jpe?g|gif|png|svg)$/i,
-        loader: 'url-loader?limit=10000',
-      }, {
-        test: /\.json$/,
-        loader: 'json-loader',
-      },
-    ],
-  },
-
-  plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendor',
-      minChunks: Infinity,
-      filename: 'vendor.js',
-    }),
-    new webpack.DefinePlugin({
-      'process.env': {
-        CLIENT: JSON.stringify(true),
-        'NODE_ENV': JSON.stringify('development'),
-      }
-    }),
-  ],
-
-  postcss: () => [
-    postcssFocus(),
-    cssnext({
-      browsers: ['last 2 versions', 'IE > 10'],
-    }),
-    postcssReporter({
-      clearMessages: true,
-    }),
-  ],
+    devtool: 'source-map'
 };
+
+module.exports = webpackConfig;

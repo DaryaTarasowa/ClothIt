@@ -3,20 +3,19 @@ import { TOGGLE_ADD_CLOTH } from './AppActions';
 
 // Initial State
 const initialState = {
-  showAddCloth: false,
+	showAddCloth: true,
 };
 
 const AppReducer = (state = initialState, action) => {
-  switch (action.type) {
+	switch (action.type) {
+		case TOGGLE_ADD_CLOTH:
+			return {
+				showAddCloth: !state.showAddCloth,
+			};
 
-    case TOGGLE_ADD_CLOTH:
-      return {
-        showAddCloth: !state.showAddCloth,
-      };    
-
-    default:
-      return state;
-  }
+		default:
+			return state;
+	}
 };
 
 /* Selectors */

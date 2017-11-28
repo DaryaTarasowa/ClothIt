@@ -4,12 +4,10 @@ import { FormattedMessage } from 'react-intl';
 import {Grid, Segment, Header, Image} from 'semantic-ui-react';
 
 // Import Style
-import styles from './ClothListItem.css';
+//import styles from './ClothListItem.css';
 
 function ClothListItem(props) {
-    const picture_url = 'landing_logo.jpg';
-    const picture = require(`images/${picture_url}`);
-    console.log(picture);
+
     //let picture = <Image src=require(`${picture_url}`)/>;
     let style = {
      background: '#eee' // url(picture), //TODO need to handle error of loading the image
@@ -24,14 +22,14 @@ function ClothListItem(props) {
               {props.cloth.name}
             </Link>
           </Header>
-          {/* <Image src={require(props.cloth.picture)}/>
-          <Image src={picture} centered/>
-          */}
+          <Image src={props.cloth.picture} />
 
 
-          <p className={styles['author-name']}><FormattedMessage id="by" /> {props.cloth.brand}</p>
-          <p className={styles['post-desc']}>{props.cloth.description}</p>
-          <p className={styles['post-action']}><a href="#" onClick={props.onDelete}><FormattedMessage id="deleteCloth" /></a></p>
+
+
+          <p className='author-name'><FormattedMessage id="by" /> {props.cloth.brand}</p>
+          <p className='post-desc'>{props.cloth.description}</p>
+          <p className='post-action'><a href="#" onClick={props.onDelete}><FormattedMessage id="deleteCloth" /></a></p>
          </Segment>
     </Grid.Column>
   );

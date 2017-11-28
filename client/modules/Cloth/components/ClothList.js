@@ -4,12 +4,12 @@ import React, { PropTypes } from 'react';
 import ClothListItem from './ClothListItem/ClothListItem';
 import {Grid, Segment} from 'semantic-ui-react';
 
-import styles from './ClothList.css';
+//import styles from './ClothList.css';
 
 function ClothList(props) {
   return (
       <Segment padded='very'>
-    <Grid className={styles['listview']} columns={5} doubling>
+    <Grid className='listview' columns={5} doubling>
       {
         props.clothes.map(cloth => (
           <ClothListItem

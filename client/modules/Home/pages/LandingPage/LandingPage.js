@@ -13,7 +13,7 @@ import {Grid, Segment, Image} from 'semantic-ui-react';
 // import { getClothes } from '../../ClothReducer';
 
 //Import Styles
-import styles from './LandingPage.css';
+//import styles from './LandingPage.css';
 
 //Import images
 
@@ -27,8 +27,8 @@ class LandingPage extends Component {
 
   render() {
     return (
-        <div className={styles['page-background']}>
-            <Image src={require('images/landing_logo.jpg')} centered className={styles['static']}/>
+        <div className='page-background'>
+            <Image src='/assets/images/landing_logo.jpg' centered className='static'/>
         </div>
 
     );
