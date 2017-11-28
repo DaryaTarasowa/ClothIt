@@ -8,21 +8,28 @@ import {Grid, Segment, Header, Image} from 'semantic-ui-react';
 
 function ClothListItem(props) {
 
-    //let picture = <Image src=require(`${picture_url}`)/>;
+    let picture_url = props.cloth.picture;
+	//let picture_url = '/assets/images/hmprod\(9\).jpg';
+
+
     let style = {
-     background: '#eee' // url(picture), //TODO need to handle error of loading the image
+    	//background: `#eee `, //TODO need to handle error of loading the image
     //   backgroundSize: "100% 100%",
+		backgroundImage: "url('" + picture_url + "')",
+		//backgroundImage: '"url(' + picture_url + ')"',
+		backgroundSize: "100% 100%",
     }
 
   return (
     <Grid.Column>
-        <Segment style={style}>
+        <Segment>
+		<div style={style}>
           <Header as ='h3'>
             <Link to={`/clothes/${props.cloth.slug}-${props.cloth.cuid}`} >
               {props.cloth.name}
             </Link>
           </Header>
-          <Image src={props.cloth.picture} />
+
 
 
 
@@ -30,7 +37,7 @@ function ClothListItem(props) {
           <p className='author-name'><FormattedMessage id="by" /> {props.cloth.brand}</p>
           <p className='post-desc'>{props.cloth.description}</p>
           <p className='post-action'><a href="#" onClick={props.onDelete}><FormattedMessage id="deleteCloth" /></a></p>
-         </Segment>
+        </div> </Segment>
     </Grid.Column>
   );
 }

@@ -53,7 +53,6 @@ Header.contextTypes = {
 };
 
 Header.propTypes = {
-  toggleAddCloth: PropTypes.func.isRequired,
   switchLanguage: PropTypes.func.isRequired,
   intl: PropTypes.object.isRequired,
 };
