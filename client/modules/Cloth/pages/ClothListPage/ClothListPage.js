@@ -13,7 +13,7 @@ import { toggleAddCloth } from '../../../App/AppActions';
 import { getShowAddCloth } from '../../../App/AppReducer';
 import { getClothes } from '../../ClothReducer';
 
-import { Grid, Divider, Image } from 'semantic-ui-react';
+import { Grid, Divider, Image, Button } from 'semantic-ui-react';
 //import styles from './ClothListPage.css';
 
 class ClothListPage extends Component {
@@ -44,8 +44,12 @@ class ClothListPage extends Component {
 			<div className='page-background'>
 				<Grid centered className='static'>
 					<Grid.Column width={12} className='static'>
-						<ClothCreateWidget addCloth={this.handleAddCloth} showAddCloth={this.props.showAddCloth}/>
+
 						<ClothList handleDeleteCloth={this.handleDeleteCloth} clothes={this.props.clothes} />
+						{/*<Button onClick={this.toggleAddClothSection.bind(this)}>Add new</Button>*/}
+						<ClothCreateWidget addCloth={this.handleAddCloth} showAddCloth={this.props.showAddCloth}/>
+
+
 					</Grid.Column>
 				</Grid>
 			</div>

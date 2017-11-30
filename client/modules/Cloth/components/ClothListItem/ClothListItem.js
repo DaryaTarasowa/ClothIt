@@ -22,8 +22,7 @@ function ClothListItem(props) {
 
   return (
     <Grid.Column>
-        <Segment>
-		<div style={style}>
+        <Segment style={style}>
           <Header as ='h3'>
             <Link to={`/clothes/${props.cloth.slug}-${props.cloth.cuid}`} >
               {props.cloth.name}
@@ -37,7 +36,7 @@ function ClothListItem(props) {
           <p className='author-name'><FormattedMessage id="by" /> {props.cloth.brand}</p>
           <p className='post-desc'>{props.cloth.description}</p>
           <p className='post-action'><a href="#" onClick={props.onDelete}><FormattedMessage id="deleteCloth" /></a></p>
-        </div> </Segment>
+        </Segment>
     </Grid.Column>
   );
 }

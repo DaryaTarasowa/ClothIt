@@ -1,6 +1,22 @@
 export default {
-  locale: 'en',
-  messages: {
-    siteTitle: ''    
-  },
+	locale: 'en',
+	messages: {
+		siteTitle: '',
+		clothName: 'Name',
+		selectclothName: 'e.g. Blue T-shirt',
+		selectbrand: 'Select a brand',
+		brand: 'Brand',
+		bodypart: 'Body part',
+		selectbodyPart: 'Select a body part',
+		size: 'Size',
+		selectSize: 'Select a size',
+		color: 'Color',
+		selectColor: 'Select a color',
+		fabric: 'Fabric',
+		selectFabric: 'Select a fabric',
+		picture: 'Picture',
+		uploadPicture: 'Upload a picture',
+		description: 'Description',
+		addDescription: 'Add a descripton',
+	},
 };

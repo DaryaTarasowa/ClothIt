@@ -3,7 +3,7 @@ import { TOGGLE_ADD_CLOTH } from './AppActions';
 
 // Initial State
 const initialState = {
-	showAddCloth: true,
+	showAddCloth: false,
 };
 
 const AppReducer = (state = initialState, action) => {
