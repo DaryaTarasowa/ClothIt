@@ -29,9 +29,9 @@ module.exports = {
      */
 
     addCloth: function(req, res) {
-      if (!req.body.cloth.name || !req.body.cloth.bodypart || !req.body.cloth.brand || !req.body.cloth.size || !req.body.cloth.color || !req.body.cloth.fabric || !req.body.cloth.picture) {
-        res.status(403).end();
-      }
+      // if (!req.body.cloth.name || !req.body.cloth.bodypart || !req.body.cloth.brand || !req.body.cloth.size || !req.body.cloth.color || !req.body.cloth.fabric || !req.body.cloth.picture) {
+      //   res.status(403).end();
+      // }
 
       const newCloth = new Cloth(req.body.cloth);
 

@@ -1,0 +1,42 @@
+import React, { Component, PropTypes } from 'react';
+import { injectIntl, intlShape, FormattedMessage } from 'react-intl';
+import {Form} from 'semantic-ui-react';
+
+// Import Style
+//import styles from './ClothCreateWidget.css';
+
+export class ClothCreateWidget extends Component {
+  addCloth = () => {
+    const nameRef = this.refs.name;
+    const bodypartRef = this.refs.bodypart;
+    const brandRef = this.refs.brand;
+    const sizeRef = this.refs.size;
+    const colorRef = this.refs.color;
+    const fabricRef = this.refs.fabric;
+    const pictureRef = this.refs.picture;
+	this.props.addCloth(nameRef.value, null, null, null, null, null, null);
+	//nameRef.value = bodypartRef.value = brandRef.value = sizeRef.value = colorRef.value = fabricRef.value = pictureRef.value = '';
+  };
+
+  render() {
+
+    return (
+      <div as={Form}>
+        <div className='form-content'>
+          <h2 className='form-title'><FormattedMessage id="createNewCloth" /></h2>
+          <input as={Form.Input} placeholder={this.props.intl.messages.authorName} className='form-field' ref="name" />
+
+          <a className='post-submit-button' href="#" onClick={this.addCloth}><FormattedMessage id="submit" /></a>
+        </div>
+      </div>
+    );
+  }
+}
+
+ClothCreateWidget.propTypes = {
+  addCloth: PropTypes.func.isRequired,
+  showAddCloth: PropTypes.bool.isRequired,
+  intl: intlShape.isRequired,
+};
+
+export default injectIntl(ClothCreateWidget);

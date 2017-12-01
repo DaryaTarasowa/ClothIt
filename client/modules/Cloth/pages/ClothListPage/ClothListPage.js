@@ -32,9 +32,9 @@ class ClothListPage extends Component {
 	};
 
 
-	handleAddCloth = (name, bodypart, brand, size, color, fabric, picture) => {
+	handleAddCloth = (values) => {
 		this.props.dispatch(toggleAddCloth());
-		this.props.dispatch(addClothRequest({name, bodypart, brand, size, color, fabric, picture}));
+		this.props.dispatch(addClothRequest(values));
 	};
 
 	render() {
