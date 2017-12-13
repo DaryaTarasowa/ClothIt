@@ -10,11 +10,6 @@ import ClothAddForm from './ClothAddForm';
 
 export class ClothCreateWidget extends Component {
 
-	onSubmit = (values) => {
-		this.props.addCloth(values);
-	};
-
-
 	render() {
 
 		return (
@@ -42,6 +37,7 @@ export class ClothCreateWidget extends Component {
 ClothCreateWidget.propTypes = {
 	addCloth: PropTypes.func.isRequired,
 	showAddCloth: PropTypes.bool.isRequired,
+	toggle: PropTypes.func.isRequired,
 	intl: intlShape.isRequired,
 };
 

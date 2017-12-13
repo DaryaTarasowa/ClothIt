@@ -126,7 +126,7 @@ textarea {
 .footer{
   text-align: center;
   padding: 56px 0;
-  background: #eee url('/assets/images/landing_logo_bg.jpg') center;
+  background: #eee url('/assets/images/header-bk.png') center;
   background-size: cover;
 }
 

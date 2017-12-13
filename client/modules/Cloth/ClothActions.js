@@ -7,6 +7,7 @@ export const DELETE_CLOTH = 'DELETE_CLOTH';
 
 // Export Actions
 export function addCloth(cloth) {
+	
 	return {
 		type: ADD_CLOTH,
 		cloth,

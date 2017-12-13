@@ -9,12 +9,16 @@ import {InputField, SelectField, TextAreaField } from 'react-semantic-redux-form
 
 const validate = values => {
 	const errors = {}
-	if (!values.username) {
-		errors.username = 'Username is Required'
+	if (!values.bodypart) {
+		errors.bodypart = 'Please select a bodypart'
 	}
 
-	if (!values.password) {
-		errors.password = 'Password is Required'
+	if (!values.name) {
+		errors.name = 'Please select a name'
+	}
+
+	if (!values.brand){
+		errors.brand = 'Please select a brand (Or "no-brand")'
 	}
 	return errors;
 }
@@ -54,14 +58,16 @@ class ClothAddForm extends Component{
 						label={this.props.intl.messages.clothName}
 						placeholder={this.props.intl.messages.selectclothName}
 					/>
-					<Field required
+					<Field
+						required
 						component={SelectField}
 						options={brandOptions}
 						label={this.props.intl.messages.brand}
 						placeholder={this.props.intl.messages.selectbrand}
 						name="brand"
 					/>
-					<Field required
+					<Field
+						required
 						component={SelectField}
 						options={bodypartOptions}
 						label={this.props.intl.messages.bodypart}
@@ -125,6 +131,7 @@ ClothAddForm.propTypes = {
 export default injectIntl(compose(
 	reduxForm({
   		form: 'cloathAdd',	// a unique identifier for this form
-  		enableReinitialize: true
+  		//enableReinitialize: true,
+		validate
 	})
 )(ClothAddForm));
