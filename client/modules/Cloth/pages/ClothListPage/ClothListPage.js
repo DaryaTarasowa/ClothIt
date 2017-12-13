@@ -72,10 +72,6 @@ ClothListPage.propTypes = {
 		name: PropTypes.string.isRequired,
 		bodypart: PropTypes.string.isRequired,
 		brand: PropTypes.string.isRequired,
-		size: PropTypes.string.isRequired,
-		color: PropTypes.string.isRequired,
-		fabric: PropTypes.string.isRequired,
-		picture: PropTypes.string.isRequired
 	})).isRequired,
 	showAddCloth: PropTypes.bool.isRequired,
 	dispatch: PropTypes.func.isRequired,

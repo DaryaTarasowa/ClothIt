@@ -20,6 +20,10 @@ const validate = values => {
 	if (!values.brand){
 		errors.brand = 'Please select a brand (Or "no-brand")'
 	}
+
+	if (!values.picture){
+		values.picture = null;
+	}
 	return errors;
 }
 
@@ -48,6 +52,21 @@ class ClothAddForm extends Component{
 								{key: 'acryl', text: 'Acryl', value: 'acryl'},
 								{key: 'textile', text: 'textile', value: 'textile'},
 								{key: 'leather', text: 'Leather', value: 'leather'},
+							];
+		let colorOptions = [{key: 'red', text: 'Red', value: 'red'},
+							{key: 'blue', text: 'Blue', value: 'blue'},
+							{key: 'green', text: 'Green', value: 'green'},
+							{key: 'white', text: 'White', value: 'white'},
+							{key: 'black', text: 'Black', value: 'black'},
+							{key: 'teal', text: 'Teal', value: 'teal'},
+							{key: 'orange', text: 'Orange', value: 'orange'},
+							{key: 'yellow', text: 'Yellow', value: 'yellow'},
+							{key: 'purple', text: 'Purple', value: 'purple'},
+							{key: 'grey', text: 'Grey', value: 'grey'},
+							{key: 'pink', text: 'Pink', value: 'pink'},
+							{key: 'navy', text: 'Navy', value: 'navy'},
+							{key: 'brown', text: 'Brown', value: 'brown'},
+							{key: 'beige', text: 'Beige', value: 'beige'},
 							];
 		return (
 			<Form onSubmit={this.props.handleSubmit(this.props.onSubmit)}>
@@ -83,7 +102,8 @@ class ClothAddForm extends Component{
 						name="size"
 					/>
 					<Field //TODO colorpicker
-						component={InputField}
+						component={SelectField}
+						options={colorOptions}
 						label={this.props.intl.messages.color}
 						placeholder={this.props.intl.messages.selectColor}
 						name="color"
