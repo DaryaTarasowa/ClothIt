@@ -8,7 +8,7 @@ body {
 }
 
 .page-background{
-    background: #eee url('/assets/images/landing_logo_bg.jpg') center;;
+    background: #eee url('/assets/images/landing_logo_bg.jpg') center;
     background-size: 100% 100%;
     text-align: center;
 }
@@ -126,6 +126,7 @@ textarea {
 .footer{
   text-align: center;
   padding: 56px 0;
+  background: #eee url('/assets/images/landing_logo_bg.jpg') center;
   background-size: cover;
 }
 

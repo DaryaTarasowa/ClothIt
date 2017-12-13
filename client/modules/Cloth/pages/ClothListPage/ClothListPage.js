@@ -44,12 +44,8 @@ class ClothListPage extends Component {
 			<div className='page-background'>
 				<Grid centered className='static'>
 					<Grid.Column width={12} className='static'>
-
 						<ClothList handleDeleteCloth={this.handleDeleteCloth} clothes={this.props.clothes} />
-						{/*<Button onClick={this.toggleAddClothSection.bind(this)}>Add new</Button>*/}
-						<ClothCreateWidget addCloth={this.handleAddCloth} showAddCloth={this.props.showAddCloth}/>
-
-
+						<ClothCreateWidget addCloth={this.handleAddCloth} toggle={this.toggleAddClothSection} showAddCloth={this.props.showAddCloth}/>
 					</Grid.Column>
 				</Grid>
 			</div>

@@ -9,7 +9,7 @@ import { FormattedMessage } from 'react-intl';
 
 export function Footer() {
   return (
-    <div style={{ background: `#FFF` }} className='footer'>
+    <div className='footer'>
       <p>&copy; 2016 &middot; Hashnode &middot; LinearBytes Incorp.</p>
       <p><FormattedMessage id="twitterMessage" /> : <a href="https://twitter.com/@mern_io" target="_Blank">@mern_io</a></p>
     </div>

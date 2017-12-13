@@ -14,40 +14,27 @@ export class ClothCreateWidget extends Component {
 		this.props.addCloth(values);
 	};
 
-	// addCloth = () => {
-	// 	console.log(this);
-	// 	// const nameRef = this.refs.name;
-	// 	// const bodypartRef = this.refs.bodypart;
-	// 	// const brandRef = this.refs.brand;
-	// 	// const sizeRef = this.refs.size;
-	// 	// const colorRef = this.refs.color;
-	// 	// const fabricRef = this.refs.fabric;
-	// 	// const pictureRef = this.refs.picture;
-	// 	// if (nameRef.value && bodypartRef.value && brandRef.value) {
-	// 	// 	this.props.addCloth(nameRef.value, bodypartRef.value, brandRef.value, sizeRef.value, colorRef.value, fabricRef.value, pictureRef.value);
-	// 	// 	nameRef.value = bodypartRef.value = brandRef.value = sizeRef.value = colorRef.value = fabricRef.value = pictureRef.value = '';
-	// 	// }
-	// };
 
 	render() {
-		let cls = 'form';
-		if (this.props.showAddCloth) cls+= ' appear';
 
 		return (
-			<Modal dimmer='inverted' trigger={<Button>Add new</Button>}>
+			<div>
+				<Button onClick = {this.props.toggle}>Add new</Button>
+				<Modal dimmer='inverted' open={this.props.showAddCloth}>
 
-				<Header as='h2' icon>
-					<Icon name='add to cart' />
-					<FormattedMessage id="addNewCloth" defaultMessage='Add new clothing'/>
-					<Header.Subheader>
-						<FormattedMessage id="addNewCloth" defaultMessage='Fill in details about your piece of clothing'/>
-					</Header.Subheader>
-				</Header>
+					<Header as='h2' icon>
+						<Icon name='add to cart' />
+						<FormattedMessage id="addNewCloth" defaultMessage='Add new clothing'/>
+						<Header.Subheader>
+							<FormattedMessage id="addNewCloth" defaultMessage='Fill in details about your piece of clothing'/>
+						</Header.Subheader>
+					</Header>
 
-				<Modal.Content>
-					<ClothAddForm onSubmit={this.onSubmit}/>
-				</Modal.Content>
-			</Modal>
+					<Modal.Content>
+						<ClothAddForm onSubmit={this.props.addCloth}/>
+					</Modal.Content>
+				</Modal>
+			</div>
 		);
 	}
 }
