@@ -1,42 +1,42 @@
 import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 import { FormattedMessage } from 'react-intl';
-import {Grid, Segment, Header, Image} from 'semantic-ui-react';
+import {Grid, Segment, Header, Image, Sidebar, Label, Icon} from 'semantic-ui-react';
 
 // Import Style
 //import styles from './ClothListItem.css';
 
 function ClothListItem(props) {
 	let style = {};
-    let sample = '/assets/images/' + props.cloth.bodypart + '_sample.png';
+	let sample = '/assets/images/' + props.cloth.bodypart + '_sample.png';
 	let picture_color = '#fff';
 	if (!props.cloth.picture){
 		picture_color = props.cloth.color;
 		switch (props.cloth.color) {
 			case 'blue':
-				picture_color = '#0085da';
-				break;
+			picture_color = '#0085da';
+			break;
 			case 'red':
-				picture_color = '#e63441';
-				break;
+			picture_color = '#e63441';
+			break;
 			case 'green':
-				picture_color = '#00af1d';
-				break;
+			picture_color = '#00af1d';
+			break;
 			// case 'orange':
 			// 	picture_color = 'orange';
 			// 	break;
 			// case 'yellow':
 			// 	picture_color = 'yellow';
-				break;
+			break;
 			case 'white':
-				picture_color = '#ffffff';
-				break;
+			picture_color = '#ffffff';
+			break;
 			case 'grey':
-				picture_color = '#777777';
-				break;
+			picture_color = '#777777';
+			break;
 			case 'black':
-				picture_color = '#111111';
-				break;
+			picture_color = '#111111';
+			break;
 			// case 'purple':
 			// 	picture_color = 'purple';
 			// 	break;
@@ -48,13 +48,13 @@ function ClothListItem(props) {
 			// 	break;
 			// case 'navy':
 			// 	picture_color = 'navy';
-				break;
+			break;
 			case 'brown':
-				picture_color = '#723e00';
-				break;
+			picture_color = '#723e00';
+			break;
 			case 'beige':
-				picture_color = '#d8bd9d';
-				break;
+			picture_color = '#d8bd9d';
+			break;
 		};
 		style={
 			background: picture_color + " url('" + sample + "') no-repeat",
@@ -75,31 +75,43 @@ function ClothListItem(props) {
 
 
 
-  return (
-    <Grid.Column>
-        <Segment style={style}>
-          <Header as ='h3'>
-            <Link to={`/clothes/${props.cloth.slug}-${props.cloth.cuid}`} >
-              {props.cloth.name}
-            </Link>
-          </Header>
-		  <p className='author-name'><FormattedMessage id="by" /> {props.cloth.brand}</p>
-          <p className='post-desc'>{props.cloth.description}</p>
-          <p className='post-action'><a href="#" onClick={props.onDelete}><FormattedMessage id="deleteCloth" /></a></p>
-        </Segment>
-    </Grid.Column>
-  );
+	return (
+
+		<Grid.Column>
+			<Segment.Group>
+				<Segment style={style}>
+
+					<Header as ='h3'>
+						<Link to={`/clothes/${props.cloth.slug}-${props.cloth.cuid}`} >
+							{props.cloth.name}
+							</Link>
+					</Header>
+					<p className='author-name'><FormattedMessage id="by" /> {props.cloth.brand}</p>
+					<p className='post-desc'>{props.cloth.description}</p>
+					<p className='post-action'><a href="#" onClick={props.onDelete}><FormattedMessage id="deleteCloth" /></a></p>
+
+				</Segment>
+				<Segment attached="bottom" >
+					<Label color='red' size='mini' tag>Warm</Label>
+					<Label color='blue' size='mini' tag>Special</Label>
+					<Label color='green' size='mini' tag>Designer</Label>
+					<Label color='orange' size='mini' tag>Fragile</Label>
+					<Label color='teal' size='mini' tag>Expensive</Label>
+				</Segment>
+			</Segment.Group>
+		</Grid.Column>
+	);
 }
 
 ClothListItem.propTypes = {
-  cloth: PropTypes.shape({
-      name: PropTypes.string.isRequired,
-      bodypart: PropTypes.string.isRequired,
-      brand: PropTypes.string.isRequired,
-      slug: PropTypes.string.isRequired,
-      cuid: PropTypes.string.isRequired,
-  }).isRequired,
-  onDelete: PropTypes.func.isRequired,
+	cloth: PropTypes.shape({
+		name: PropTypes.string.isRequired,
+		bodypart: PropTypes.string.isRequired,
+		brand: PropTypes.string.isRequired,
+		slug: PropTypes.string.isRequired,
+		cuid: PropTypes.string.isRequired,
+	}).isRequired,
+	onDelete: PropTypes.func.isRequired,
 };
 
 export default ClothListItem;
