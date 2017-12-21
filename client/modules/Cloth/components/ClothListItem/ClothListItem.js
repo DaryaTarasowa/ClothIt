@@ -68,7 +68,7 @@ function ClothListItem(props) {
 			background: "no-repeat, no-repeat",
 			backgroundColor: picture_color, //TODO need to handle error of loading the image
 			backgroundImage: "url('" + sample + "'), url('" + picture_url + "')",
-			backgroundSize: "auto 100%, auto",
+			backgroundSize: "auto 100%, 100%",
 			backgroundPosition: "center, center center ",
 		}
 	}

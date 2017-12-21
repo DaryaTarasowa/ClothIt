@@ -6,7 +6,7 @@ import ClothList from '../../components/ClothList';
 import ClothCreateWidget from '../../components/ClothCreateWidget/ClothCreateWidget';
 
 // Import Actions
-import { addClothRequest, fetchClothes, deleteClothRequest } from '../../ClothActions';
+import { addClothRequest, fetchClothes, deleteClothRequest, addPicture } from '../../ClothActions';
 import { toggleAddCloth } from '../../../App/AppActions';
 
 // Import Selectors
@@ -37,6 +37,11 @@ class ClothListPage extends Component {
 		this.props.dispatch(addClothRequest(values));
 	};
 
+	// addPicture = (payload) => {
+	// 	console.log(payload);
+	// 	this.props.dispatch(change('ClothAdd', 'picture', payload));
+	// }
+
 	render() {
 
 		return (
@@ -45,7 +50,12 @@ class ClothListPage extends Component {
 				<Grid centered className='static'>
 					<Grid.Column width={12} className='static'>
 						<ClothList handleDeleteCloth={this.handleDeleteCloth} clothes={this.props.clothes} />
-						<ClothCreateWidget addCloth={this.handleAddCloth} toggle={this.toggleAddClothSection} showAddCloth={this.props.showAddCloth}/>
+						<ClothCreateWidget
+							addCloth={this.handleAddCloth}
+							toggle={this.toggleAddClothSection}
+							showAddCloth={this.props.showAddCloth}
+							addPicture={this.addPicture}
+						/>
 					</Grid.Column>
 				</Grid>
 			</div>

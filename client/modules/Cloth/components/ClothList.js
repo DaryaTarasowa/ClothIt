@@ -7,21 +7,21 @@ import {Grid, Segment} from 'semantic-ui-react';
 //import styles from './ClothList.css';
 
 function ClothList(props) {
-  return (
-      <Segment padded='very'>
-    <Grid className='listview' columns={5} doubling>
-      {
-        props.clothes.map(cloth => (
-          <ClothListItem
-            cloth={cloth}
-            key={cloth.cuid}
-            onDelete={() => props.handleDeleteCloth(cloth.cuid)}
-          />
-        ))
-      }
-    </Grid>
-    </Segment>
-  );
+  	return (
+      	<Segment padded='very'>
+		    <Grid className='listview' columns={5} doubling>
+			    {
+			        props.clothes.map(cloth => (
+				        <ClothListItem
+				            cloth={cloth}
+				            key={cloth.cuid}
+				            onDelete={() => props.handleDeleteCloth(cloth.cuid)}
+				        />
+			        ))
+			    }
+		    </Grid>
+    	</Segment>
+  	);
 }
 
 ClothList.propTypes = {

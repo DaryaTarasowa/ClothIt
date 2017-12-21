@@ -4,10 +4,11 @@ import callApi from '../../util/apiCaller';
 export const ADD_CLOTH = 'ADD_CLOTH';
 export const ADD_CLOTHES = 'ADD_CLOTHES';
 export const DELETE_CLOTH = 'DELETE_CLOTH';
+export const SAVE_PICTURE_FILE = 'SAVE_PICTURE_FILE';
 
 // Export Actions
 export function addCloth(cloth) {
-	
+
 	return {
 		type: ADD_CLOTH,
 		cloth,
@@ -15,7 +16,6 @@ export function addCloth(cloth) {
 }
 
 export function addClothRequest(cloth) {
-
 	return (dispatch) => {
 		return callApi('server2','clothes','post', {
 			cloth: {
@@ -38,6 +38,13 @@ export function addClothes(clothes) {
 		clothes,
 	};
 }
+
+// export function saveFile(payload){
+// 	return {
+// 		type: SAVE_PICTURE_FILE,
+// 		payload,
+// 	};
+// }
 
 export function fetchClothes() {
 	return (dispatch) => {

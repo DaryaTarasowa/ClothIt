@@ -24,8 +24,11 @@
     "body-parser": "^1.15.1",
     "compression": "^1.6.2",
     "express": "^4.13.4",
+    "fs": "0.0.1-security",
+    "he": "^1.1.1",
     "mongoose": "^4.4.20",
-    "sanitize-html": "^1.11.4"
+    "sanitize-html": "^1.11.4",
+    "uuid": "^3.1.0"
   },
   "devDependencies": {
     "nodemon": "^1.12.1"
